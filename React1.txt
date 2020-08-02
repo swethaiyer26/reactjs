@@ -1,0 +1,19 @@
+ReactDOM.render(<App headerProps="Header from props" contentProps="Content from props"/>,document.getElementById('root'));
+
+ReactDOM.render(<App/>,document.getElementById('root'));
+
+setTimeout(() => {
+  ReactDOM.unmountComponentAtNode(document.getElementById('root'));},10000);
+
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home}/>
+      <Route path="home" component={Home}/>
+      <Route path="about" component={About}/>
+      <Route path="contact" component={Contact}/>
+    </Route>
+  </Router>),document.getElementById('root'));
+import Home from './Router';
+import About from './Router';
+import Contact from './Router';
